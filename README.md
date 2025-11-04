@@ -19,6 +19,7 @@ It includes authentication using JWT and a planned integration with Stripe for p
 ## Project Structure
 
 SwipSwapMarketplace/
+│
 ├── Auth/ → JWT setup and authentication logic
 ├── Components/ → Blazor UI components (Dashboard, Product, Payment, etc.)
 ├── Data/ → Database context and configuration
