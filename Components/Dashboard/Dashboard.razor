@@ -1,0 +1,42 @@
+﻿@page "/dashboard"
+@inject ProductService ProductService
+
+<PageTitle>Marketplace Dashboard</PageTitle>
+
+<!--
+    Displays product categories, a search bar, and product listings.
+    Serves as the main hub for browsing and navigation.
+-->
+<div class="dashboard-container">
+    <SearchBar OnSearch="HandleSearch" />
+    <CategoryList OnCategorySelected="HandleCategorySelected" />
+
+    <MudGrid>
+        @if (products is null)
+        {
+            <Loader />
+        }
+        else
+        {
+            @foreach (var item in products)
+            {
+                <MudItem xs="12" sm="6" md="4" lg="3">
+                    <ProductCard Product="item" OnViewDetails="HandleViewDetails" />
+                </MudItem>
+            }
+        }
+    </MudGrid>
+</div>
+
+@code {
+    private List<Product>? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await ProductService.GetAllAsync();
+    }
+
+    private Task HandleSearch(string query) => Task.CompletedTask;
+    private Task HandleCategorySelected(string category) => Task.CompletedTask;
+    private Task HandleViewDetails(Product product) => Task.CompletedTask;
+}

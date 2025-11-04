@@ -1,0 +1,27 @@
+# Build results
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.rsuser
+
+# ASP.NET and EF files
+appsettings*.json
+*.db
+*.mdf
+*.ldf
+Migrations/
+
+# Dependencies
+node_modules/
+wwwroot/lib/
+
+# Logs, caches, temp
+*.log
+*.cache
+*.tmp
+
+# Publish artifacts
+/publish/

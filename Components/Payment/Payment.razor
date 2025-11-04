@@ -1,0 +1,32 @@
+﻿@page "/payment/{id:int}"
+@inject PaymentService PaymentService
+@using SwipSwapMarketplace.Models
+
+
+<PageTitle>Checkout</PageTitle>
+
+<!--
+    Handles checkout and payment via Stripe integration.
+    This page will eventually use Stripe Elements or Checkout API.
+-->
+<div class="payment-container">
+    <h3>Complete Your Purchase</h3>
+
+    <MudPaper Class="pa-4 ma-auto" MaxWidth="500px">
+        <p>Processing payment for product ID: @id</p>
+        <MudButton Color="Color.Success" Variant="Variant.Filled" OnClick="ProcessPayment">
+            Pay Now
+        </MudButton>
+    </MudPaper>
+</div>
+
+@code {
+    [Parameter] public int id { get; set; }
+
+    private async Task ProcessPayment()
+    {
+        // TODO: Integrate Stripe payment flow here
+        await PaymentService.AddAsync(new SwipSwapMarketplace.Models.Payment { OrderId = id });
+
+    }
+}

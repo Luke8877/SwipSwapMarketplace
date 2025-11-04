@@ -1,0 +1,20 @@
+﻿@using MudBlazor
+
+<MudChipSet T="string" SelectedChipChanged="OnChipSelected">
+    @foreach (var category in categories)
+    {
+        <MudChip T="string" Value="@category">@category</MudChip>
+    }
+</MudChipSet>
+
+@code {
+    [Parameter] public EventCallback<string> OnCategorySelected { get; set; }
+
+    private readonly List<string> categories = ["Electronics", "Home", "Fashion", "Vehicles"];
+
+    private async Task OnChipSelected(MudChip<string> chip)
+    {
+        if (chip != null)
+            await OnCategorySelected.InvokeAsync(chip.Value);
+    }
+}

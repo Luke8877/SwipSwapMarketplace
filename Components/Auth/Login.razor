@@ -1,0 +1,40 @@
+﻿@page "/login"
+@inject AuthService AuthService
+
+<PageTitle>Login / Sign Up</PageTitle>
+
+<!--
+    This page handles both login and signup using a toggle.
+    Users can enter their credentials and obtain a JWT token upon successful login.
+-->
+<div class="auth-container">
+    <MudPaper Class="pa-6 ma-auto" MaxWidth="400px">
+        <MudTabs>
+            <MudTabPanel Text="Login">
+                <!-- Login Form -->
+                <MudTextField @bind-Value="loginEmail" Label="Email" />
+                <MudTextField @bind-Value="loginPassword" Label="Password" InputType="InputType.Password" />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="HandleLogin">Login</MudButton>
+            </MudTabPanel>
+
+            <MudTabPanel Text="Sign Up">
+                <!-- Registration Form -->
+                <MudTextField @bind-Value="signupUsername" Label="Username" />
+                <MudTextField @bind-Value="signupEmail" Label="Email" />
+                <MudTextField @bind-Value="signupPassword" Label="Password" InputType="InputType.Password" />
+                <MudButton Color="Color.Secondary" Variant="Variant.Filled" OnClick="HandleSignup">Create Account</MudButton>
+            </MudTabPanel>
+        </MudTabs>
+    </MudPaper>
+</div>
+
+@code {
+    private string loginEmail = string.Empty;
+    private string loginPassword = string.Empty;
+    private string signupUsername = string.Empty;
+    private string signupEmail = string.Empty;
+    private string signupPassword = string.Empty;
+
+    private async Task HandleLogin() { /* Call AuthService.LoginAsync(...) */ }
+    private async Task HandleSignup() { /* Call AuthService.RegisterAsync(...) */ }
+}

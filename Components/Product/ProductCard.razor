@@ -1,0 +1,13 @@
+﻿@using SwipSwapMarketplace.Models
+@code {
+    [Parameter] public Product Product { get; set; } = new();
+    [Parameter] public EventCallback<Product> OnViewDetails { get; set; }
+}
+
+<MudCard Style="margin:10px;cursor:pointer;" @onclick="() => OnViewDetails.InvokeAsync(Product)">
+    <MudCardContent>
+        <h4>@Product.Name</h4>
+        <p>@Product.Description</p>
+        <p><b>@Product.Price.ToString("C")</b></p>
+    </MudCardContent>
+</MudCard>

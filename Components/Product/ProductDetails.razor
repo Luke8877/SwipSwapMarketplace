@@ -1,0 +1,46 @@
+﻿@page "/product/{id:int}"
+@inject ProductService ProductService
+@inject NavigationManager NavManager
+
+<PageTitle>Product Details</PageTitle>
+
+<!--
+    Displays full information for a selected product.
+    Includes description, map location, and purchase button.
+-->
+<div class="product-details">
+    @if (product is null)
+    {
+        <Loader />
+    }
+    else
+    {
+        <h2>@product.Name</h2>
+        <p>@product.Description</p>
+        <p><b>Price:</b> @product.Price.ToString("C")</p>
+
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="GoToPayment">
+            Buy Now
+        </MudButton>
+
+        <!-- Placeholder for Google Maps integration -->
+        <div class="map-container">
+            <!-- Map will render here -->
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public int id { get; set; }
+    private Product? product;
+
+    protected override async Task OnInitializedAsync()
+    {
+        product = await ProductService.GetByIdAsync(id);
+    }
+
+    private void GoToPayment()
+    {
+        NavManager.NavigateTo($"/payment/{id}");
+    }
+}
