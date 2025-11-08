@@ -24,6 +24,7 @@ namespace SwipSwapMarketplace.Services
                 .Include(p => p.Category)
                 .Include(p => p.User)
                 .ToListAsync();
+
         }
 
         // Retrieves a single product by ID
