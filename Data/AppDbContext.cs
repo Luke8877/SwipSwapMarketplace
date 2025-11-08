@@ -54,6 +54,36 @@ namespace SwipSwapMarketplace.Data
                 .HasForeignKey<Payment>(p => p.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Product>().HasData(
+                new Product
+                {
+                    ProductId = 1,
+                    Name = "Gaming Laptop",
+                    Description = "High-end gaming laptop with RTX 4070",
+                    Price = 1800m,
+                    CategoryId = 1,   // FK to Electronics
+                    SellerId = 1,     // FK to Jane
+                    ImageUrl = "https://example.com/laptop.jpg",
+                    IsSold = false,
+                    DatePosted = new DateTime(2025, 11, 1)
+                    // Navigation properties left out, EF resolves via FKs
+                },
+                new Product
+                {
+                    ProductId = 2,
+                    Name = "Smartphone",
+                    Description = "Flagship smartphone with OLED display",
+                    Price = 900m,
+                    CategoryId = 1,   // Electronics
+                    SellerId = 2,     // John
+                    ImageUrl = "https://example.com/smartphone.jpg",
+                    IsSold = true,
+                    DatePosted = new DateTime(2025, 10, 28)
+                }
+                // Add more products as needed
+            );
+
+
         }
     }
 }
