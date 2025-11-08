@@ -1,0 +1,16 @@
+﻿@using SwipSwapMarketplace.Views.Components
+
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <div>
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </div>
+    </Found>
+
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Sorry, page not found.</p>
+        </LayoutView>
+    </NotFound>
+</Router>

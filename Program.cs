@@ -1,4 +1,4 @@
-using SwipSwapMarketplace.Components;
+using SwipSwapMarketplace.Views;
 using SwipSwapMarketplace.Data;
 using SwipSwapMarketplace.Auth;
 using Microsoft.EntityFrameworkCore;
