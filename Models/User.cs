@@ -25,7 +25,7 @@ namespace SwipSwapMarketplace.Models
         [Phone]
         public string? PhoneNumber { get; set; }
 
-        public DateTime DateCreated { get; set; } = DateTime.Now;
+        public DateTime DateCreated { get; set; } // = DateTime.Now; <= removed this so values could be seeded. Can add again later
 
         // Navigation Properties
         public ICollection<Product>? Products { get; set; }   // Listings created by the user (seller role)

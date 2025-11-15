@@ -103,10 +103,10 @@ app.MapRazorComponents<App>()
 #region Database Initialization
 
 // Create and seed the database on startup if it does not exist
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.EnsureCreated();
+    //db.Database.EnsureCreated();
 
     // Add an initial demo user if the Users table is empty
     if (!db.Users.Any())
@@ -119,7 +119,7 @@ using (var scope = app.Services.CreateScope())
         });
         db.SaveChanges();
     }
-}
+}*/
 
 #endregion
 

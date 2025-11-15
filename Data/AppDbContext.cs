@@ -54,6 +54,29 @@ namespace SwipSwapMarketplace.Data
                 .HasForeignKey<Payment>(p => p.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Seed Categories
+            modelBuilder.Entity<Category>().HasData(
+                new Category { CategoryId = 1, Name = "Electronics" }
+            );
+
+            // Seed Users
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    UserId = 1,
+                    Username = "JaneDoe",
+                    PasswordHash = "placeholder",
+                    Email = "jane@example.com"
+                },
+                new User
+                {
+                    UserId = 2,
+                    Username = "JohnSmith",
+                    PasswordHash = "placeholder",
+                    Email = "john@example.com"
+                }
+            );
+
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {

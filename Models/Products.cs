@@ -33,7 +33,7 @@ namespace SwipSwapMarketplace.Models
 
         public bool IsSold { get; set; } = false;
 
-        public DateTime DatePosted { get; set; } = DateTime.Now;
+        public DateTime DatePosted { get; set; } // = DateTime.Now; <= removed this so values could be seeded. Can add again later
 
         // Navigation Properties
         public Category? Category { get; set; }   // Category the product belongs to
