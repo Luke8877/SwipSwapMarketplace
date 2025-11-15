@@ -86,7 +86,7 @@ namespace SwipSwapMarketplace.Data
                     Price = 1800m,
                     CategoryId = 1,   // FK to Electronics
                     SellerId = 1,     // FK to Jane
-                    ImageUrl = "https://example.com/laptop.jpg",
+                    ImageUrl = "/uploads/laptop.jpg",
                     IsSold = false,
                     DatePosted = new DateTime(2025, 11, 1)
                     // Navigation properties left out, EF resolves via FKs
@@ -99,7 +99,7 @@ namespace SwipSwapMarketplace.Data
                     Price = 900m,
                     CategoryId = 1,   // Electronics
                     SellerId = 2,     // John
-                    ImageUrl = "https://example.com/smartphone.jpg",
+                    ImageUrl = "/uploads/smartphone.jpg",
                     IsSold = true,
                     DatePosted = new DateTime(2025, 10, 28)
                 }

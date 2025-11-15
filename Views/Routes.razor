@@ -1,10 +1,11 @@
 ﻿@using SwipSwapMarketplace.Views.Components
+@using MudBlazor
 
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<Router AppAssembly="@typeof(Program).Assembly">
+<Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
     <Found Context="routeData">
         <div>
             <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
