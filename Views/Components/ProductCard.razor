@@ -5,11 +5,11 @@
     [Parameter] public EventCallback<Product> OnViewDetails { get; set; }
 }
 
-<MudCard Style="margin:10px;cursor:pointer;" @onclick="() => OnViewDetails.InvokeAsync(Product)">
+<MudCard Color="Primary" Elevation="6" Hover="true" Class="ma-4 pa-4" @onclick="() => OnViewDetails.InvokeAsync(Product)">
     <MudCardContent>
-        <h4>@Product.Name</h4>
-        <p>@Product.Description</p>
-        <p><b>@Product.Price.ToString("C")</b></p>
+        <MudText>@Product.Name</MudText>
+        <MudText>@Product.Description</MudText>
+        <MudText>@Product.Price.ToString("C")</MudText>
 
     </MudCardContent>
 </MudCard>
